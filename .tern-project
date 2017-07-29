@@ -1,0 +1,10 @@
+{
+	"libs" : [],
+	"loadEagerly": [ "app/*.js", "test/*.js" ],
+	"plugins" : {
+		"commonjs" : {},
+		"node" : {},
+		"requirejs" : {},
+		"node_resolve" : {}
+	}
+}
