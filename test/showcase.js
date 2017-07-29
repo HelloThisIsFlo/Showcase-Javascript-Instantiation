@@ -3,8 +3,8 @@ var expect = require('chai').expect;
 var should = require('chai').should();
 
 // Application dependencies
-var exampleWFFactory = require('../../app/constructor_showcase/example_wf.js');
-var ExampleWN = require('../../app/constructor_showcase/example_wn.js');
+var exampleWFFactory = require('../app/example_wf.js');
+var ExampleWN        = require('../app/example_wn.js');
 
 
 describe('Showcase the 2 diferent "Clean" ways to instanciate an Object', function () {
@@ -25,7 +25,7 @@ describe('Showcase the 2 diferent "Clean" ways to instanciate an Object', functi
         expect(urlFromObj).to.equal('ws://localhost:4000/socket');
         expect(usernameFromObj).to.equal('Florent');
 
-        // Members ARE private
+        // Members are PRIVATE
         const urlFromObjField = exampleWithFactory._url;
         should.not.exist(urlFromObjField);
 
@@ -43,7 +43,7 @@ describe('Showcase the 2 diferent "Clean" ways to instanciate an Object', functi
         expect(urlFromObj).to.equal('ws://localhost:4000/socket');
         expect(usernameFromObj).to.equal('Florent');
 
-        // Members are not private
+        // Members are NOT PRIVATE
         const urlFromObjField = exempleWithNew._url;
         expect(urlFromObjField).to.equal('ws://localhost:4000/socket');
 
