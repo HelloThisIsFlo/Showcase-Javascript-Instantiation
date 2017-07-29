@@ -13,27 +13,27 @@ module.exports = function(host, port, username) {
         return ['ws://', host, ':', port, '/socket'].join('');
     };
 
-
     // Private Members
     const _url = makeUrl(host, port);
-    const _username = username;
-
+    const _privateUsername = 'Private_' + username;
 
     // This is where the `new` operator is "hidden"
     // --> Calling `a = {}` is actualy INSTANTIATING a new `Object Literal`
     //
     // There are still some differences (try to log both created Examples).
     return {
+        // Public Members
+        username: username,
+
+        // Public Functions
         logUrlAndUsername: function() {
             console.log('Url: ' + _url + ' | Username: ' + _username);
         },
-
         getUrl: function() {
             return _url;
         },
-
-        getUsername: function() {
-            return _username;
+        getPrivateUsername: function() {
+            return _privateUsername;
         }
     };
 };

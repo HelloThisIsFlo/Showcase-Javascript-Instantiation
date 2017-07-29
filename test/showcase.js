@@ -18,16 +18,27 @@ describe('Showcase the 2 diferent "Clean" ways to instantiate an Object', functi
         // This is how you create an instance
         const exampleWithFactory = exampleWFFactory(host, port, username);
 
-        // State is as expected
+        //////////////////////////
+        // State is as expected //
+        //////////////////////////
+
+        // Private Members
+        should.not.exist(exampleWithFactory._url);
+        should.not.exist(exampleWithFactory._privateUsername);
+
+        // Public Members
+        expect(exampleWithFactory.username).to.equal('Florent');
+
+        // Private Functions
+        should.not.exist(exampleWithFactory.makeUrl);
+
+        // Public Functions
         const urlFromObj = exampleWithFactory.getUrl();
-        const usernameFromObj = exampleWithFactory.getUsername();
-
+        const usernameFromObj = exampleWithFactory.getPrivateUsername();
         expect(urlFromObj).to.equal('ws://localhost:4000/socket');
-        expect(usernameFromObj).to.equal('Florent');
+        expect(usernameFromObj).to.equal('Private_Florent');
 
-        // Members are PRIVATE
-        const urlFromObjField = exampleWithFactory._url;
-        should.not.exist(urlFromObjField);
+
 
         // exampleWithFactory.logUrlAndUsername();
     });
@@ -36,16 +47,25 @@ describe('Showcase the 2 diferent "Clean" ways to instantiate an Object', functi
         // This is how you create an instance
         const exempleWithNew = new ExampleWN(host, port, username);
 
-        // State is as expected
+        //////////////////////////
+        // State is as expected //
+        //////////////////////////
+
+        // Private Members
+        should.not.exist(exempleWithNew._url);
+        should.not.exist(exempleWithNew._privateUsername);
+
+        // Public Members
+        expect(exempleWithNew.username).to.equal('Florent');
+
+        // Private Functions
+        should.not.exist(exempleWithNew.makeUrl);
+
+        // Public Functions
         const urlFromObj = exempleWithNew.getUrl();
-        const usernameFromObj = exempleWithNew.getUsername();
-
+        const usernameFromObj = exempleWithNew.getPrivateUsername();
         expect(urlFromObj).to.equal('ws://localhost:4000/socket');
-        expect(usernameFromObj).to.equal('Florent');
-
-        // Members are NOT PRIVATE
-        const urlFromObjField = exempleWithNew._url;
-        expect(urlFromObjField).to.equal('ws://localhost:4000/socket');
+        expect(usernameFromObj).to.equal('Private_Florent');
 
 
         // exampleWithFactory.logUrlAndUsername();

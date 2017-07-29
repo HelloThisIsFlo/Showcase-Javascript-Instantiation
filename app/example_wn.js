@@ -11,15 +11,24 @@ const ExampleWN = function(host, port, username) {
         return ['ws://', host, ':', port, '/socket'].join('');
     }
 
-    // Public Members (no public members possible?)
-    this._url = makeUrl(host, port);
-    this._username = username;
+    // Public Members
+    this.username = username;
+
+    // Private Member
+    const _url = makeUrl(host, port);
+    const _privateUsername = 'Private_' + username;
+
+    //Public Function using Private Members
+    this.getPrivateUsername = function() {
+        return _privateUsername;
+    }
+    this.getUrl = function() {
+        return _url;
+    }
 
 };
 
-ExampleWN.prototype.getUrl = function() {
-    return this._url;
-}
+// Public Functions in the Prototype
 ExampleWN.prototype.getUsername = function() {
     return this._username;
 }
