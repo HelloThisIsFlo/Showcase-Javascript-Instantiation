@@ -7,7 +7,7 @@ var exampleWFFactory = require('../app/example_wf.js');
 var ExampleWN        = require('../app/example_wn.js');
 
 
-describe('Showcase the 2 diferent "Clean" ways to instanciate an Object', function () {
+describe('Showcase the 2 diferent "Clean" ways to instantiate an Object', function () {
 
     const host = 'localhost';
     const port = 4000;

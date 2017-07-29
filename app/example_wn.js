@@ -1,7 +1,7 @@
 // ExampleWN -- Example "With New"
 //
 // Example class having 2 fields to showcase how to define a class that will
-// be instanciated using the `new` keywords.
+// be instantiated using the `new` keywords.
 //
 // Showcases constructor arguments, public methods, private methods.
 
