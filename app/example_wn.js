@@ -6,17 +6,17 @@
 // Showcases constructor arguments, public methods, private methods.
 
 const ExampleWN = function(host, port, username) {
-    // Private functions
-    const makeUrl = function(host, port) {
-        return ['ws://', host, ':', port, '/socket'].join('');
-    }
-
     // Public Members
     this.username = username;
 
     // Private Member
     const _url = makeUrl(host, port);
     const _privateUsername = 'Private_' + username;
+
+    // Private functions
+    function makeUrl(host, port) {
+        return ['ws://', host, ':', port, '/socket'].join('');
+    }
 
     //Public Function using Private Members
     this.getPrivateUsername = function() {
@@ -25,7 +25,6 @@ const ExampleWN = function(host, port, username) {
     this.getUrl = function() {
         return _url;
     }
-
 };
 
 // Public Functions in the Prototype
